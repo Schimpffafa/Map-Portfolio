@@ -1,6 +1,7 @@
 # Parker Schimpff's Map Portfolio
 
                     **Welcome to Parker Schimpff's Map portfolio!**
+
 ![Picture of myself](./good-picture.jpg)
 Fig. 2: Picture of me in front of Lake One in the Boundary Waters Wilderness Areas
 
@@ -26,10 +27,60 @@ Fig. 2: [Kentucky Landcover PDF](./maps/kyLandcover.pdf)
 
 This map was created for my Advanced GIS class (GEO 409) in the Spring of 2024. It was created to be put in this [website](https://schimpffafa.github.io/geo409-field-trip/) which was my first assignment in website creation through Github and Visual Studio Code (the same program being used to create this portfolio!). This map was created completely through python code.
 
-The 2016 National Landcover Dataset and the Shaded Relief dataset were acquired from The National Map Download Service and MRLC respectively. 
+The 2016 National Landcover Dataset and the Shaded Relief dataset were acquired from The National Map Download Service and MRLC respectively.
 
-The general python code flow was used:
+### General python code flow used:
 
 1. Set input database, output database, environment workspace (same as input), spatial reference 3089 (KY FIPS).
 2. Set area of interest variable to be the Kentucky State Polygon
-3. Inside a *for* loop, use the *arcpy.analysis.Clip()* command to clip all feature classes in input database by the area of interest.  Do the same for all the raster layers. 
+3. Inside a *for* loop, use the *arcpy.analysis.Clip* command to clip all feature classes in input database by the area of interest.  The same command is used for all the raster layers. The clipped layers were outputted into the output database.
+4. Set the environment workspace to the output database.
+5. Use the *arcpy.da.SearchCursor* command on the clipped land cover raster in order to determine counts of cells for different land cover uses. Using this, along with math in a for loop, do calculations and print percentage of sq. miles of land use for each type of land use.
+
+![For the curious](./curiousity.JPG)  
+Fig. 3: Results from the search cursor tool
+
+This is the [IPYNB Script used](./scripts/landcoverClipping.ipynb).
+
+## UK Campus Canopy Tree Height Map - Spring 2024
+
+![Campus Canopy Splash](./maps/CanopyHeightModel.jpg)
+Fig. 4: [Campus Canopy PDF](./maps/CanopyHeightModel.pdf)
+
+reason
+
+data
+
+code
+
+## Schimpff Farm 5040 OH State Route 222 - Fall 2023
+
+![Farm Splash](./maps/farmPrint.jpg)
+Fig. 5: [Schimpff Farm PDF](./maps/farmPrint.pdf)
+
+![Achewon Map](./maps/achewon.jpg)
+Fig. 6: [Camp Achewon Drawn Map](./maps/achewon.pdf)
+
+reason
+
+data sources (clermont county gis, achewon)
+
+methodology (drawing custom polygons, using contour lines, stream lines, and property lines to match up the achewon scan with the actual basemap)
+
+## 2010 Tuberculosis Maps - Fall 2023
+
+link to map (all 5)
+
+reason
+
+data sources
+
+findings
+
+methodology
+
+## India Water Map - Spring 2024
+
+## Lexington Land Use - Spring 2024
+
+## Campus Picnic Locator / Campus Height Model - Spring 2024
