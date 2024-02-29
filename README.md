@@ -3,9 +3,10 @@
                     **Welcome to Parker Schimpff's Map portfolio!**
 
 ![Picture of myself](./good-picture.jpg)
-Fig. 2: Picture of me in front of Lake One in the Boundary Waters Wilderness Areas
+Fig. 1: Picture of me in front of Lake One in the Boundary Waters Wilderness Area
 
 I am...
+
 - A Sophomore at the University of Kentucky
 - Majoring in Natural Resources and Environmental Science
 - Minoring in GIS/Mapping and Jazz Piano Performance
@@ -29,7 +30,7 @@ This map was created for my Advanced GIS class (GEO 409) in the Spring of 2024. 
 
 The 2016 National Landcover Dataset and the Shaded Relief dataset were acquired from The National Map Download Service and MRLC respectively.
 
-### General python code flow used:
+### General python code flow used
 
 1. Set input database, output database, environment workspace (same as input), spatial reference 3089 (KY FIPS).
 2. Set area of interest variable to be the Kentucky State Polygon
@@ -47,9 +48,12 @@ This is the [IPYNB Script used](./scripts/landcoverClipping.ipynb).
 ![Campus Canopy Splash](./maps/CanopyHeightModel.jpg)
 Fig. 4: [Campus Canopy PDF](./maps/CanopyHeightModel.pdf)
 
-reason
+This map was created for my Advanced GIS class (GEO 409) in the Spring of 2024. It was created to be put in this [website](https://schimpffafa.github.io/geo409-field-trip/) which was my first assignment in website creation through Github and Visual Studio Code (the same program being used to create this portfolio!). This map was the second map included in that assignment, in conjunction with the Landcover map shown directly above this section. This map was created completely through python code.
 
-data
+Need to talk about data for
+- DEM
+- DSM
+- Basemap 
 
 code
 
@@ -58,21 +62,20 @@ code
 ![Farm Splash](./maps/farmPrint.jpg)
 Fig. 5: [Schimpff Farm PDF](./maps/farmPrint.pdf)
 
+### Reasons for creating this map
+
 This map was a pet project. Truly, it was inspired by this map:
 
 ![Achewon Map](./maps/achewon.jpg)
 Fig. 6: [Camp Achewon Drawn Map](./maps/achewon.pdf)
 
+My grandfather, for more than 50 years, lived on a piece of property, nicknamed "The Farm" by the family. A few years back, they sold the property. For many years, the farm was used by a local Boy Scout Troop, Troop 281 out of Anderson, Ohio, who worked with my grandfather in order to make trails, bridges, fields, and campsites. In the late 90s/early 2000s, the scouts at the time drew this map, with proposed additions to the land and a proposition to appeal to the Dan Beard Council to make Camp Achewon a recognized scout camp, available to be used by the whole council, not just Troop 281. Although these aspirations (specifically the treehouse and the lake) never materialized, the map they created was quite realistic and spatially accurate, and provided a good baseline to create drawn layers showing trails and campsites on top of ariel photography.
 
-My grandfather, for more than 50 years, lived on a piece of property, nicknamed "The Farm" by the family. A few years back, they sold the property. For many years, the farm was used by a local Boy Scout Troop, Troop 281 out of Anderson, Ohio, who worked with my grandfather in order to make trails, bridges, fields, and campsites. In the late 90s/early 2000s, the scouts at the time drew this map, with proposed additions to the land and a proposition to appeal to the Dan Beard Council to make Camp Achewon a recognized scout camp, available to be used by the whole council, not just Troop 281. Although these aspirations never materialized, the map they created was quite realistic and spatially accurate, and provided a good baseline to create drawn layers showing trails and campsites on top of ariel photography. 
+### Methodology
 
-The farm is in Clermont county
+The farm is in Clermont County, OH, which has a GIS department. Using ariel photography from the summer of 2017 from Clermont Co. GIS, as well as feature classes for 2ft/10ft contour lines, property lines, streams, lakes, etc. I was able anchor and geo-reference the Achewon map over the ariel photography using property line edges, stream forks, and 2ft contour lines. Once this was completed, I was able to draw the trails and campsites by hand using the Achewon map.
 
-reason
-
-data sources (clermont county gis, achewon)
-
-methodology (drawing custom polygons, using contour lines, stream lines, and property lines to match up the achewon scan with the actual basemap)
+Once this was completed, all that was left to do was to add labels to the trails and put the map into a lay out and do post mapping cartography work. The finished product was printed on 11x17 tabloids, framed, and given to my grandfather and father for Christmas 2023.
 
 ## 2010 Tuberculosis Maps - Fall 2023
 
