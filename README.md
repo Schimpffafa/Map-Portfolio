@@ -1,5 +1,3 @@
-# Parker Schimpff's Map Portfolio
-
                     **Welcome to Parker Schimpff's Map portfolio!**
 
 ![Picture of myself](./good-picture.jpg)
@@ -19,6 +17,7 @@ I am...
 
 The goal of this webpage is simple: to present my work in ArcGIS Pro. From here down will be a display of many maps I have created for research, recreation, and coursework. There will be descriptions of why the map was created, what was found through the map, methodology of creating the map, data sources, and python code used (if any).
 
+
 ## Kentucky Landcover Map - February 2024
 
 ![Kentucky Landcover Splash](./maps/kyLandcover2.jpg)
@@ -26,7 +25,7 @@ Fig. 2: [Kentucky Landcover PDF](./maps/kyLandcover2.pdf)
 
 This map was created for my Advanced GIS class (GEO 409) in the Spring of 2024. It was created to be put in this [website](https://schimpffafa.github.io/geo409-field-trip/) which was my first assignment in website creation through Github and Visual Studio Code (the same program being used to create this portfolio!). This map was created completely through python code.
 
-The 2016 National Landcover Dataset and the Shaded Relief dataset were acquired from The National Map Download Service and MRLC respectively.
+The 2016 National Landcover Dataset and the Shaded Relief dataset were acquired from MRLC and The National Map Download Service respectively.
 
 ### General python code flow used
 
@@ -49,9 +48,12 @@ Fig. 4: [Campus Canopy PDF](./maps/CanopyHeightModel.pdf)
 This map was created for my Advanced GIS class (GEO 409) in the Spring of 2024. It was created to be put in this [website](https://schimpffafa.github.io/geo409-field-trip/) which was my first assignment in website creation through Github and Visual Studio Code (the same program being used to create this portfolio!). This map was the second map included in that assignment, in conjunction with the Landcover map shown directly above this section. This map was created completely through python code.
 
 Need to talk about data for
-- DEM
-- DSM
-- Basemap 
+- DEM - Kentucky from above
+- DSM - Kentucky from above
+- NAIP - USGS
+- Shaded Relief - National Madp Download service (USGS)
+- Basemap - from esri
+- Landcover - MRLC
 
 ### Python code used
 
