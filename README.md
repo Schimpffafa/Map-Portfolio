@@ -19,12 +19,10 @@ I am...
 
 The goal of this webpage is simple: to present my work in ArcGIS Pro. From here down will be a display of many maps I have created for research, recreation, and coursework. There will be descriptions of why the map was created, what was found through the map, methodology of creating the map, data sources, and python code used (if any).
 
-INSERT TOC
-
 ## Kentucky Landcover Map - February 2024
 
-![Kentucky Landcover Splash](./maps/kyLandcover.jpg)
-Fig. 2: [Kentucky Landcover PDF](./maps/kyLandcover.pdf)
+![Kentucky Landcover Splash](./maps/kyLandcover2.jpg)
+Fig. 2: [Kentucky Landcover PDF](./maps/kyLandcover2.pdf)
 
 This map was created for my Advanced GIS class (GEO 409) in the Spring of 2024. It was created to be put in this [website](https://schimpffafa.github.io/geo409-field-trip/) which was my first assignment in website creation through Github and Visual Studio Code (the same program being used to create this portfolio!). This map was created completely through python code.
 
@@ -55,7 +53,19 @@ Need to talk about data for
 - DSM
 - Basemap 
 
-code
+### Python code used
+
+1. Set workspace as geodatabase containing DEM, DSM, and NAIP rasters clipped for the UK Campus.
+2. Create a height raster (DSM-DEM)
+3. Create a NDVI (Normalized Difference Vegetation Index) of campus using the command *arcpy.ia.NDVI()* with the NAIP raster as the target variable. This creates a raster layer for NDVI of the campus
+4. Using those two variables, height and NVDI, we can use variable geometry to create a new raster of trees on campus. This was the code used:
+
+        trees = arcpy.sa.Con(((ndvi > 0.1) & (height > 5)), height)
+        trees.save('campus_trees_ndvi_01')
+
+5. Once the trees layer is completed, use the *arcpy.sa.RemapRange* tool to re-class the raster layer into height groups. For this map, I chose 6 height groups that are visible in the legend.
+
+This is the [IPYNB Script used](./scripts/model-tree-height.ipynb).
 
 ## Schimpff Farm 5040 OH State Route 222 - Fall 2023
 
@@ -94,3 +104,8 @@ methodology
 ## Lexington Land Use - Spring 2024
 
 ## Campus Picnic Locator / Campus Height Model - Spring 2024
+
+### General Python Code Flow
+
+1. Set workspace as geodatabase containing DEM, DSM, and NAIP rasters clipped for the UK Campus.
+2. Create a NDVI (Normalized Difference Vegetation Index) of campus using the command *arcpy.ia.NDVI()* with the NAIP raster as the target variable. This creates a raster layer for NDVI of the campus
