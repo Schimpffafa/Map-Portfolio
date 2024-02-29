@@ -17,7 +17,6 @@ I am...
 
 The goal of this webpage is simple: to present my work in ArcGIS Pro. From here down will be a display of many maps I have created for research, recreation, and coursework. There will be descriptions of why the map was created, what was found through the map, methodology of creating the map, data sources, and python code used (if any).
 
-
 ## Kentucky Landcover Map - February 2024
 
 ![Kentucky Landcover Splash](./maps/kyLandcover2.jpg)
@@ -47,13 +46,7 @@ Fig. 4: [Campus Canopy PDF](./maps/CanopyHeightModel.pdf)
 
 This map was created for my Advanced GIS class (GEO 409) in the Spring of 2024. It was created to be put in this [website](https://schimpffafa.github.io/geo409-field-trip/) which was my first assignment in website creation through Github and Visual Studio Code (the same program being used to create this portfolio!). This map was the second map included in that assignment, in conjunction with the Landcover map shown directly above this section. This map was created completely through python code.
 
-Need to talk about data for
-- DEM - Kentucky from above
-- DSM - Kentucky from above
-- NAIP - USGS
-- Shaded Relief - National Madp Download service (USGS)
-- Basemap - from esri
-- Landcover - MRLC
+The data for this map came from a variety of places. The DEM and DSM files are from the Kentucky from Above database. The NAIP is a national project from the US Geological Survey (USGS). The basemap is a standard basemap given by ESRI.
 
 ### Python code used
 
@@ -89,25 +82,67 @@ The farm is in Clermont County, OH, which has a GIS department. Using ariel phot
 
 Once this was completed, all that was left to do was to add labels to the trails and put the map into a lay out and do post mapping cartography work. The finished product was printed on 11x17 tabloids, framed, and given to my grandfather and father for Christmas 2023.
 
+## Resistance to Evangelism Worldwide - Fall 2023
+
+![Choropleth map w/ Pew Research](./maps/pewResearch.jpg)
+Fig. 7: [Restrictions on Evangelism PDF](./maps/pewResearch.pdf)
+
+![Choropleth map w/ many sources](./maps/compositeScore.jpg)
+Fig. 8: [Reaction to Evangelism PDF](./maps/compositeScore.pdf)
+
+### Data sources
+
+### Findings
+
+### Process
+
 ## 2010 Tuberculosis Maps - Fall 2023
 
-link to map (all 5)
+![TB Cases](./maps/tbCases.jpg)
+Fig. 9: [Tuberculosis Cases in 2010 PDF](./maps/tbCases.pdf)
 
-reason
+![TB Deaths](./maps/tbDeaths.jpg)
+Fig. 10: [Tuberculosis Cases in 2010 PDF](./maps/tbDeaths.pdf)
 
-data sources
+![TB Cases leading to Deaths](./maps/tbCasesToDeaths.jpg)
+Fig. 11: [Tuberculosis Cases leading to Death 2010 PDF](./maps/tbCasesToDeaths.pdf)
 
-findings
+![Percentage of Country Population that died to TB 2010](./maps/percentDeathPop.jpg)
+Fig. 12: [Percentage of Country Population that died to TB 2010](./maps/percentDeathPop.pdf)
 
-methodology
+### data sources
 
-## India Water Map - Spring 2024
+### findings and highlights
+
+these are in the powerpoint
+
+### methodology
 
 ## Lexington Land Use - Spring 2024
 
-## Campus Picnic Locator / Campus Height Model - Spring 2024
+![Lexington Landcover](./maps/lexLandcover.jpg)
+Fig. 13: [Lexington Landcover PDF](./maps/lexLandcover.pdf)
 
-### General Python Code Flow
+## Campus Picnic Locator - Spring 2024
+
+![Picnic Locator Map](./maps/picnic.jpg)
+Fig. 14: [Picnic Locator Map PDF](./maps/picnic.pdf)
+
+### Reason for creating
+
+### Data sources
+
+### Python code 
 
 1. Set workspace as geodatabase containing DEM, DSM, and NAIP rasters clipped for the UK Campus.
 2. Create a NDVI (Normalized Difference Vegetation Index) of campus using the command *arcpy.ia.NDVI()* with the NAIP raster as the target variable. This creates a raster layer for NDVI of the campus
+3. Create a height raster (DSM-DEM)
+4. Using the *arcpy.sa.SurfaceParameters* tool, using parameters to find aspect out of the DEM raster, create an aspect raster. The aspect raster will allow us to specify to search for Southern facing areas of campus.
+5. Specify a "picnic" variable to be (1) Southern Facing, (2) Green (vegetation), and (3) Less than 5 feet in height (as to not be in a tree/bush).
+
+
+        picnic = (ndvi > 0.2) & (height < 5) & (south)
+
+This is the [IPYNB Script used](./scripts/pdsc227-lab-03.ipynb).
+
+## India Water Map - Spring 2024
