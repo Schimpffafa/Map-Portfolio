@@ -82,13 +82,69 @@ The farm is in Clermont County, OH, which has a GIS department. Using ariel phot
 
 Once this was completed, all that was left to do was to add labels to the trails and put the map into a lay out and do post mapping cartography work. The finished product was printed on 11x17 tabloids, framed, and given to my grandfather and father for Christmas 2023.
 
+## Lexington Land Use - Spring 2024
+
+![Lexington Landcover](./maps/lexLandcover.jpg)
+Fig. 7: [Lexington Landcover PDF](./maps/lexLandcover.pdf)
+
+### Motivation and Data
+
+This was a proof of concept lab assignment for GEO 409. The main focus of this lab was to be able to create a square polygon centered around a point (in this case Downtown Lexington) and use that polygon to clip other layers.
+
+This project used the MRLC 2016 National Landcover dataset. The stream and road vector data came from the Kentucky from Above dataset.
+
+### Python code
+
+The following is the general flow of the python code used to create the content of this map:
+
+1. Set workspace as geodatabase containing KY Landcover, Streams, and Roads. 
+2. Set Lat and Long of the intersection at Main and Limestone. Use arcpy commands to create a point in the center of the intersection. The following is the code in question.
+
+        # set the location of the intersection at Main and Limestone
+        lat = 38.046372
+        lon = -84.497024
+        # create point
+        point = arcpy.Point(lon, lat)
+        # create point geometry using wgs84
+        ptGeometry = arcpy.PointGeometry(point, wgs84)
+        # show that bad boy below
+        ptGeometry
+
+3. After this, create a 10 mile buffer around this point and convert from a circular polygon to a square polygon.
+4. Use this polygon to clip necessary raster and vector datasets.
+
+This is the [IPYNB Script used](./scripts/pdsc227-lab-02.ipynb).
+
+## Campus Picnic Locator - Spring 2024
+
+![Picnic Locator Map](./maps/picnic.jpg)
+Fig. 8: [Picnic Locator Map PDF](./maps/picnic.pdf)
+
+### Motivation and Data
+
+This was a lab assignment for my GEO 409 course at UK. It was a Valentine's Day themed assignment and aimed to find areas on campus that would be well suited for a picnic. The criteria were that the location is Southward facing, on an elevation below 5 feet, and on green vegetation.
+
+The data for this map was the NAIP dataset from the USGS, the DSM and DEM dataset from the Kentucky from Above. 
+
+### Python code 
+
+1. Set workspace as geodatabase containing DEM, DSM, and NAIP rasters clipped for the UK Campus.
+2. Create a NDVI (Normalized Difference Vegetation Index) of campus using the command *arcpy.ia.NDVI()* with the NAIP raster as the target variable. This creates a raster layer for NDVI of the campus
+3. Create a height raster (DSM-DEM)
+4. Using the *arcpy.sa.SurfaceParameters* tool, using parameters to find aspect out of the DEM raster, create an aspect raster. The aspect raster will allow us to specify to search for Southern facing areas of campus.
+5. Specify a "picnic" variable to be (1) Southern Facing, (2) Green (vegetation), and (3) Less than 5 feet in height (as to not be in a tree/bush).
+
+        picnic = (ndvi > 0.2) & (height < 5) & (south)
+
+This is the [IPYNB Script used](./scripts/pdsc227-lab-03.ipynb).
+
 ## Resistance to Evangelism Worldwide - Fall 2023
 
 ![Choropleth map w/ Pew Research](./maps/pewResearch.jpg)
-Fig. 7: [Restrictions on Evangelism PDF](./maps/pewResearch.pdf)
+Fig. 9: [Restrictions on Evangelism PDF](./maps/pewResearch.pdf)
 
 ![Choropleth map w/ many sources](./maps/compositeScore.jpg)
-Fig. 8: [Reaction to Evangelism PDF](./maps/compositeScore.pdf)
+Fig. 10: [Reaction to Evangelism PDF](./maps/compositeScore.pdf)
 
 ### Data sources
 
@@ -99,16 +155,16 @@ Fig. 8: [Reaction to Evangelism PDF](./maps/compositeScore.pdf)
 ## 2010 Tuberculosis Maps - Fall 2023
 
 ![TB Cases](./maps/tbCases.jpg)
-Fig. 9: [Tuberculosis Cases in 2010 PDF](./maps/tbCases.pdf)
+Fig. 11: [Tuberculosis Cases in 2010 PDF](./maps/tbCases.pdf)
 
 ![TB Deaths](./maps/tbDeaths.jpg)
-Fig. 10: [Tuberculosis Cases in 2010 PDF](./maps/tbDeaths.pdf)
+Fig. 12: [Tuberculosis Cases in 2010 PDF](./maps/tbDeaths.pdf)
 
 ![TB Cases leading to Deaths](./maps/tbCasesToDeaths.jpg)
-Fig. 11: [Tuberculosis Cases leading to Death 2010 PDF](./maps/tbCasesToDeaths.pdf)
+Fig. 13: [Tuberculosis Cases leading to Death 2010 PDF](./maps/tbCasesToDeaths.pdf)
 
 ![Percentage of Country Population that died to TB 2010](./maps/percentDeathPop.jpg)
-Fig. 12: [Percentage of Country Population that died to TB 2010](./maps/percentDeathPop.pdf)
+Fig. 14: [Percentage of Country Population that died to TB 2010](./maps/percentDeathPop.pdf)
 
 ### data sources
 
@@ -117,32 +173,5 @@ Fig. 12: [Percentage of Country Population that died to TB 2010](./maps/percentD
 these are in the powerpoint
 
 ### methodology
-
-## Lexington Land Use - Spring 2024
-
-![Lexington Landcover](./maps/lexLandcover.jpg)
-Fig. 13: [Lexington Landcover PDF](./maps/lexLandcover.pdf)
-
-## Campus Picnic Locator - Spring 2024
-
-![Picnic Locator Map](./maps/picnic.jpg)
-Fig. 14: [Picnic Locator Map PDF](./maps/picnic.pdf)
-
-### Reason for creating
-
-### Data sources
-
-### Python code 
-
-1. Set workspace as geodatabase containing DEM, DSM, and NAIP rasters clipped for the UK Campus.
-2. Create a NDVI (Normalized Difference Vegetation Index) of campus using the command *arcpy.ia.NDVI()* with the NAIP raster as the target variable. This creates a raster layer for NDVI of the campus
-3. Create a height raster (DSM-DEM)
-4. Using the *arcpy.sa.SurfaceParameters* tool, using parameters to find aspect out of the DEM raster, create an aspect raster. The aspect raster will allow us to specify to search for Southern facing areas of campus.
-5. Specify a "picnic" variable to be (1) Southern Facing, (2) Green (vegetation), and (3) Less than 5 feet in height (as to not be in a tree/bush).
-
-
-        picnic = (ndvi > 0.2) & (height < 5) & (south)
-
-This is the [IPYNB Script used](./scripts/pdsc227-lab-03.ipynb).
 
 ## India Water Map - Spring 2024
