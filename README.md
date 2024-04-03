@@ -26,7 +26,7 @@ This map was created for my Advanced GIS class (GEO 409) in the Spring of 2024. 
 
 The 2016 National Landcover Dataset and the Shaded Relief dataset were acquired from MRLC and The National Map Download Service respectively.
 
-### General python code flow used
+### Python Code Flow
 
 1. Set input database, output database, environment workspace (same as input), spatial reference 3089 (KY FIPS).
 2. Set area of interest variable to be the Kentucky State Polygon
@@ -48,7 +48,7 @@ This map was created for my Advanced GIS class (GEO 409) in the Spring of 2024. 
 
 The data for this map came from a variety of places. The DEM and DSM files are from the Kentucky from Above database. The NAIP is a national project from the US Geological Survey (USGS). The basemap is a standard basemap given by ESRI.
 
-### Python code used
+### Python Code Flow
 
 1. Set workspace as geodatabase containing DEM, DSM, and NAIP rasters clipped for the UK Campus.
 2. Create a height raster (DSM-DEM)
@@ -67,7 +67,7 @@ This is the [IPYNB Script used](./scripts/model-tree-height.ipynb).
 ![Farm Splash](./maps/farmPrint.jpg)
 Fig. 5: [Schimpff Farm PDF](./maps/farmPrint.pdf)
 
-### Reasons for creating this map
+### Motivation
 
 This map was a pet project. Truly, it was inspired by this map:
 
@@ -87,13 +87,13 @@ Once this was completed, all that was left to do was to add labels to the trails
 ![Lexington Landcover](./maps/lexLandcover.jpg)
 Fig. 7: [Lexington Landcover PDF](./maps/lexLandcover.pdf)
 
-### Motivation and Data
+### Motivation and Data Sources
 
 This was a proof of concept lab assignment for GEO 409. The main focus of this lab was to be able to create a square polygon centered around a point (in this case Downtown Lexington) and use that polygon to clip other layers.
 
 This project used the MRLC 2016 National Landcover dataset. The stream and road vector data came from the Kentucky from Above dataset.
 
-### Python code
+### Python Code Flow
 
 The following is the general flow of the python code used to create the content of this map:
 
@@ -126,7 +126,7 @@ This was a lab assignment for my GEO 409 course at UK. It was a Valentine's Day 
 
 The data for this map was the NAIP dataset from the USGS, the DSM and DEM dataset from the Kentucky from Above. 
 
-### Python code 
+### Python Code Flow
 
 1. Set workspace as geodatabase containing DEM, DSM, and NAIP rasters clipped for the UK Campus.
 2. Create a NDVI (Normalized Difference Vegetation Index) of campus using the command *arcpy.ia.NDVI()* with the NAIP raster as the target variable. This creates a raster layer for NDVI of the campus
@@ -146,11 +146,23 @@ Fig. 9: [Restrictions on Evangelism PDF](./maps/pewResearch.pdf)
 ![Choropleth map w/ many sources](./maps/compositeScore.jpg)
 Fig. 10: [Reaction to Evangelism PDF](./maps/compositeScore.pdf)
 
-### Data sources
+### Importance and Findings
 
-### Findings
+There is a famous phenomenon known as the "10-40" window in Global Evangelist studies. It refers to an area of North Africa, the Middle East and Asia approximately between 10 degrees north and 40 degrees north latitude. Inside this window, there are remarkably low rates of Christianity, whether due to lack of knowledge, government control, or societal pressures. I decided to take this trend and rework it with data I found myself.
 
-### Process
+The idea of this project was to assess acceptance of Christianity/Evangelism in four areas: Culture, Offical Country Status on Religion, Governmental Bias, and Rights to Free Exercise of Religion of choice. 
+
+### Methodology
+
+For each raw score for each of the four areas, Cultural, Official Status, Gov’t Bias, and Free Exercise, a Z score was calculated with the following equation:
+
+Z = Individual Country Score - Average of World Scores / Standard Deviation of World Scores
+
+The Z score allowed two things: 1. To create a standard scale: more negative numbers being more docile towards Christianity and Evangelism, more positive being more hostile. 2. To allow for a composite score between the four to be possible, by adding the numbers up, it allowed us to see which countries got further against/for their beliefs and which countries had mixed reactions between cultural and governmental opinion. 
+
+### Data Sources
+
+The data for this project came from the Pew Research Center, the Government Religious preference Dataset, and the ASsociation fo Religion Data Archives.
 
 ## 2010 Tuberculosis Maps - Fall 2023
 
@@ -166,12 +178,44 @@ Fig. 13: [Tuberculosis Cases leading to Death 2010 PDF](./maps/tbCasesToDeaths.p
 ![Percentage of Country Population that died to TB 2010](./maps/percentDeathPop.jpg)
 Fig. 14: [Percentage of Country Population that died to TB 2010](./maps/percentDeathPop.pdf)
 
-### data sources
+### Data Sources
 
-### findings and highlights
+The data used in these maps came from the Centers for Disease Control and Prevention and United Nations's UNdata databases. I personally scrubbed the data and compiled it into a useable state for this project.
 
-these are in the powerpoint
+### Importance and Findings
 
-### methodology
+This project was a midterm assignment for GEO 309 (Intro to GIS) at the University of Kentucky. It was mostly used as a proof of concept in basic map making and showing trends with chloropleth maps. 
+
+Tuberculosis is the world's deadliest disease, even though, Tuberculosis is treatable. However, in much of the world where this disease still ravages, it is due to lack of equitable assess to diagnostic capabilities as well as treatment measures. 
+
+### Process
+
+1. Downloading datasets, understanding what data is available, and compiling it into a useable file.
+2. Importing this data into ArcGIS. Country polygons were used to join the data to a polygon. 
+3. The next step was creating multiple (5) different maps, highlighting different parts of the data. 
+4. The final step was creating layouts for every map, adding legends, as well as backend cartography to make the maps readable. 
 
 ## India Water Map - Spring 2024
+
+![Midna Water Map](./maps/IndiaWater.jpg)
+Fig. 15: [Midna Water Map PDF](./maps/IndiaWater.pdf)
+
+### Reasoning
+
+A friend who attends Boyce College in Louisville, KY is in a class on for profit business planting in impoverished areas. As part of a final group project, she was tasked to find a business plan in the city of Midna, India. The groups idea was a water purification business that sells to the city of Midna. An integral part of this was determining (1) locations that a purification plant could be built and (2) areas of the city that would benefit the most from a plant being there. Naturally, a map of the area's water sources would be very useful in determining this location. 
+
+### Importance and Findings
+
+The map shows a few important things. 
+1. Two unlabeled circles exist on the map. The inner one has a diameter of 2 mi, while the outer one has a diameter of 4 mi, and both are centered on the very center of Midna. 
+2. This map marks locations of Reservoirs, Rivers, Open Water, Natural Wells, and Dug Wells.
+3. This map shows a trend of water sources being on the Eastern side of Midna, showing depravity of water access to the Western and rural areas of Midna. 
+4. The map also shows the pressing need of water access for locals. If you are a resident on the outskirts of town, it could be miles of walking in and out of the downtown area to access water.
+
+### Data Sources
+
+This data came from Esri India Content. 
+
+### Methodology
+
+In this map, I imported important datasets (the basemap and water source locations) and then ran a python buffer tool on the center of Midna. The first buffer ran at a 1 mi radius and the second ran at a 2 mi radius. 
