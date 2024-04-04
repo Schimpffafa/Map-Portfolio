@@ -25,6 +25,14 @@ Fig. X: [Expressway Lidar PDF](.maps/Lab6-2.pdf)
 ![Normal expressway](./maps/Lab6-1.jpg)
 Fig. X: [Expressway Lidar PDF](.maps/Lab6-1.pdf)
 
+### Motivations
+
+A short paragraph describing the change that occurred in my area.
+
+### Data Sources
+
+### Python Code Flow
+
 ## Kentucky Capitol Lidar Visualization - March 2024
 
 ![Capitol Lidar Splash](./maps/KYCapitol-Lidar.jpg)
