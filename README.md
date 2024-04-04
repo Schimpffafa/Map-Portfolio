@@ -17,6 +17,14 @@ I am...
 
 The goal of this webpage is simple: to present my work in ArcGIS Pro. From here down will be a display of many maps I have created for research, recreation, and coursework. There will be descriptions of why the map was created, what was found through the map, methodology of creating the map, data sources, and python code used (if any).
 
+## MLK Jr. Expressway Lidar Change Visualization - April 2024
+
+![Normal expressway](./maps/Lab6-2.jpg)
+Fig. X: [Expressway Lidar PDF](.maps/Lab6-2.pdf)
+
+![Normal expressway](./maps/Lab6-1.jpg)
+Fig. X: [Expressway Lidar PDF](.maps/Lab6-1.pdf)
+
 ## Kentucky Capitol Lidar Visualization - March 2024
 
 ![Capitol Lidar Splash](./maps/KYCapitol-Lidar.jpg)
