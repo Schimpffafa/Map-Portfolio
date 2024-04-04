@@ -1,4 +1,4 @@
-                    **Welcome to Parker Schimpff's Map portfolio!**
+         **Welcome to Parker Schimpff's Map portfolio!**
 
 ![Picture of myself](./good-picture.jpg)
 Fig. 1: Picture of me in front of Lake One in the Boundary Waters Wilderness Area
@@ -27,11 +27,11 @@ Fig. X: [Expressway Lidar PDF](.maps/Lab6-1.pdf)
 
 ### Motivations
 
-A short paragraph describing the change that occurred in my area.
+I completed these maps for the GEO 409 course at the University of Kentucky. This lab required us to show change in the Phase 1 and Phase 2 lidar point clouds in an area of our choosing in Kentucky. 
 
 ### Data Sources
 
-### Python Code Flow
+All the lidar data came from KyFromAbove.
 
 ## Kentucky Capitol Lidar Visualization - March 2024
 
@@ -40,9 +40,11 @@ Fig. X: [Capitol Lidar PDF](./maps/KYCapitol-Lidar.pdf)
 
 ### Motivations
 
+I completed this map as a part of a lab assignment for the University of Kentucky. This lab entailed picking a monument in Kentucky, render it using Lidar Data and NAIP imagery data, and use ArcGIS's flyover feature to create a [Youtube video](https://www.youtube.com/watch?v=n_uVBHIPjYw) featuring the monument. 
+
 ### Data Sources
 
-### Python Code Flow
+The data for this project came from KyRaster.com and KyFromAbove.
 
 ## Kentucky Landcover Map - February 2024
 
